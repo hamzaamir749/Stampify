@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -20,4 +21,13 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Stampify"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
+include(":core:data")
+include(":core:domain")
+include(":core:presentation:designsystem")
+include(":core:presentation:ui")
+include(":design:domain")
+include(":design:data")
+include(":design:presentation")
