@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permission_required">Permission required</string>
+    <string name="gps_required">Location required</string>
+    <string name="location_camera_rationale">In order to capture photo through camera and show location, this app needs your permission for that. Please click on \"Okay\" to grant it.</string>
+    <string name="enable_gps_rationale">In order to show location, this app needs to enable your gps/location for that. Please click on \"Okay\" to enable it.</string>
+    <string name="location_rationale">In order to track your location, this app needs your permission for that. Please click on \"Okay\" to grant it.</string>
+    <string name="camera_rationale">In order to capture photo through camera, this app needs your permission for that. Please click on \"Okay\" to grant it..</string>
+    <string name="okay">Okay</string>
+
+</resources>

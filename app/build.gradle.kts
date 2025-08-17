@@ -34,8 +34,12 @@ dependencies {
 
     //Modules
     implementation(projects.core.presentation.designsystem)
+    implementation(projects.design.presentation)
+    implementation(projects.design.location)
 
     //Navigation
     implementation(libs.androidx.navigation)
     implementation(libs.androidx.material.icons.extended)
+
+    implementation(libs.bundles.koin)
 }

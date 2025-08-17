@@ -1,5 +1,6 @@
 package com.coderpakistan.stampify
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,42 +9,38 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CameraEnhance
+import androidx.compose.material.icons.filled.Photo
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.coderpakistan.core.presentation.designsystem.StampifyScaffold
-import com.coderpakistan.core.presentation.designsystem.StampifyTheme
-import com.coderpakistan.core.presentation.designsystem.components.StampifyToolbar
-
-
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Album
-import androidx.compose.material.icons.filled.CameraEnhance
-import androidx.compose.material.icons.filled.MusicNote
-import androidx.compose.material.icons.filled.Photo
-import androidx.compose.material.icons.filled.PlaylistAddCircle
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
-
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.coderpakistan.core.presentation.designsystem.StampifyScaffold
+import com.coderpakistan.core.presentation.designsystem.StampifyTheme
+import com.coderpakistan.core.presentation.designsystem.components.StampifyToolbar
+import com.coderpakistan.design.presentation.camera.CameraScreenRoot
+import com.coderpakistan.design.presentation.settings.SettingsScreen
 
 
 class MainActivity : ComponentActivity() {
@@ -89,7 +86,11 @@ class MainActivity : ComponentActivity() {
                         }
                     }
                 ) { innerPadding ->
-                    AppNavHost(navController, startDestination, modifier = Modifier.padding(paddingValues = innerPadding))
+                    AppNavHost(
+                        navController,
+                        startDestination,
+                        modifier = Modifier.padding(paddingValues = innerPadding)
+                    )
                 }
             }
         }
@@ -126,8 +127,6 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
-
-
 
 
 @Composable
@@ -174,9 +173,9 @@ fun AppNavHost(
         Destination.entries.forEach { destination ->
             composable(destination.route) {
                 when (destination) {
-                    Destination.SONGS -> SongsScreen()
+                    Destination.SONGS -> CameraScreenRoot(modifier = modifier)
                     Destination.ALBUM -> AlbumScreen()
-                    Destination.PLAYLISTS -> PlaylistScreen()
+                    Destination.PLAYLISTS -> SettingsScreen(modifier)
                 }
             }
         }
